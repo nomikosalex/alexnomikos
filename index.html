@@ -10,10 +10,11 @@
 <meta property="og:title" content="Alexandros Nomikos — Build. Grow.">
 <meta property="og:description" content="I build products and grow businesses — AI agents, software, and the go-to-market systems behind real revenue.">
 <meta property="og:url" content="https://alexnomikos.com/">
-<meta name="twitter:card" content="summary">
+<meta property="og:image" content="https://alexnomikos.com/alex.jpg">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Alexandros Nomikos — Build. Grow.">
 <meta name="twitter:description" content="I build products and grow businesses — AI agents, software, and the go-to-market systems behind real revenue.">
-<!-- Once a real photo/OG image exists: add og:image and switch twitter:card to summary_large_image -->
+<meta name="twitter:image" content="https://alexnomikos.com/alex.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -63,6 +64,10 @@ img{max-width:100%;display:block}
 .scan{position:fixed;inset:0;z-index:3;pointer-events:none;opacity:.3;
   background:repeating-linear-gradient(to bottom,rgba(0,0,0,.2) 0 1px,transparent 1px 4px)}
 .grain{position:fixed;inset:0;z-index:3;pointer-events:none;opacity:.12;mix-blend-mode:overlay}
+.cursor-glow{position:fixed;top:0;left:0;width:440px;height:440px;margin:-220px 0 0 -220px;
+  border-radius:50%;pointer-events:none;z-index:1;
+  background:radial-gradient(circle,rgba(232,163,61,.10),transparent 70%);
+  transform:translate3d(-9999px,-9999px,0);will-change:transform}
 
 /* ---------- top rail ---------- */
 .rail{
@@ -99,7 +104,7 @@ img{max-width:100%;display:block}
   background:radial-gradient(700px 500px at 70% 40%,rgba(232,163,61,.12),transparent 65%)}
 .inner{
   position:relative;width:100%;max-width:var(--maxw);padding:0 22px;
-  display:flex;flex-direction:column;align-items:center;text-align:center;gap:clamp(12px,4cqmin,32px)
+  display:flex;flex-direction:column;align-items:center;text-align:center;gap:clamp(8px,3cqmin,20px)
 }
 .side-tag{
   font-family:"DM Mono",monospace;font-size:clamp(11px,2cqmin,14px);letter-spacing:.34em;text-transform:uppercase;
@@ -108,9 +113,27 @@ img{max-width:100%;display:block}
 .build .side-tag{color:var(--muted)}
 .grow .side-tag{color:var(--amber)}
 
+/* photo — the split object */
+.photo{position:relative;width:clamp(90px,20cqmin,214px);aspect-ratio:4/5;overflow:hidden;
+  border:1px solid var(--line);border-radius:var(--radius);background:var(--surface)}
+.photo img{width:100%;height:100%;object-fit:cover}
+.build .photo img{filter:sepia(.3) saturate(.95) contrast(1.04) brightness(.94)}
+.grow .photo img{filter:grayscale(1) contrast(1.45) brightness(1.02)}
+.grow .photo::after{content:"";position:absolute;inset:0;background:var(--amber);
+  mix-blend-mode:color;opacity:.85}
+.grow .photo::before{content:"";position:absolute;inset:0;z-index:2;
+  background:repeating-linear-gradient(to bottom,rgba(20,14,9,.55) 0 1px,transparent 1px 3px)}
+.ph{display:none;position:absolute;inset:0;flex-direction:column;align-items:center;justify-content:center;gap:8px;
+  font-family:"DM Mono",monospace;font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);
+  background:linear-gradient(160deg,#2A1E14,#150E08)}
+.ph b{font-family:"Syne",sans-serif;font-size:46px;color:var(--line);letter-spacing:-.04em}
+.photo.empty img{display:none}
+.photo.empty .ph{display:flex}
+.grow .photo.empty::after{opacity:.35}
+
 .hero h1{
   font-family:"Syne",sans-serif;font-weight:800;text-transform:uppercase;
-  font-size:clamp(34px,15cqmin,120px);line-height:.98;letter-spacing:-.04em;
+  font-size:clamp(22px,9cqmin,72px);line-height:.98;letter-spacing:-.04em;
 }
 .build h1{color:var(--text);text-shadow:0 0 44px rgba(232,163,61,.14)}
 .grow h1{color:var(--amber);text-shadow:0 0 50px rgba(232,163,61,.3)}
@@ -194,6 +217,13 @@ h2{font-family:"Syne",sans-serif;font-weight:700;font-size:clamp(27px,4.2vw,44px
 .item:hover h3 .arw{opacity:1;transform:translateX(0)}
 .item p{color:var(--muted);max-width:62ch}
 .res{font-family:"DM Mono",monospace;font-size:11.5px;color:var(--rust);margin-top:6px}
+.idx{font-family:"DM Mono",monospace;font-size:13px;font-weight:500;color:var(--muted);
+  letter-spacing:.05em;margin-right:10px;vertical-align:2px}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.tag{font-family:"DM Mono",monospace;font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;
+  border:1px solid var(--line);padding:3px 10px;border-radius:100px}
+.tag.build{color:var(--text)}
+.tag.grow{color:var(--amber);border-color:var(--amber)}
 
 /* ---------- case study (featured work) ---------- */
 .case{margin-top:40px;padding-bottom:56px;border-bottom:1px solid var(--line-soft)}
@@ -203,6 +233,9 @@ h2{font-family:"Syne",sans-serif;font-weight:700;font-size:clamp(27px,4.2vw,44px
 .case .desc{color:var(--muted);max-width:62ch;font-size:clamp(16px,1.6vw,18px);margin-top:18px}
 .flow{font-family:"DM Mono",monospace;font-size:clamp(11px,1.3vw,13px);letter-spacing:.08em;
   text-transform:uppercase;color:var(--muted);line-height:2;margin-top:22px;max-width:70ch}
+.case-groups{display:flex;flex-wrap:wrap;gap:32px;margin-top:26px}
+.case-group .k{font-family:"DM Mono",monospace;font-size:10px;letter-spacing:.2em;color:var(--amber)}
+.case-group .tags{margin-top:10px}
 
 /* ---------- story ---------- */
 .story{max-width:60ch;margin-top:34px}
@@ -307,7 +340,7 @@ footer{border-top:1px solid var(--line-soft);margin-top:64px;padding:20px 0 28px
 <div class="rail">
   <div class="grp"><b>ALEXANDROS&nbsp;NOMIKOS</b></div>
   <nav>
-    <a href="#pipeline">Pipeline</a><a href="#work">Work</a><a href="story.html">Story</a><a href="#now">Now</a><a href="#contact">Contact</a>
+    <a href="#work">Work</a><a href="story.html">Story</a><a href="#now">Now</a><a href="#contact">Contact</a>
   </nav>
   <div class="grp"><span class="dot"></span> Open to work</div>
 </div>
@@ -320,6 +353,10 @@ footer{border-top:1px solid var(--line-soft);margin-top:64px;padding:20px 0 28px
   <div class="layer build" id="layerBuild">
     <div class="inner">
       <span class="side-tag">Build</span>
+      <div class="photo" data-photo>
+        <img src="alex.jpg" alt="Alexandros Nomikos">
+        <span class="ph"><b>A</b>add alex.jpg</span>
+      </div>
       <h1>I build<br>products</h1>
       <p class="sub">AI<br>Software<br>Automation</p>
     </div>
@@ -328,6 +365,10 @@ footer{border-top:1px solid var(--line-soft);margin-top:64px;padding:20px 0 28px
   <div class="layer grow" id="layerGrow">
     <div class="inner">
       <span class="side-tag">Grow</span>
+      <div class="photo" data-photo>
+        <img src="alex.jpg" alt="">
+        <span class="ph"><b>A</b>add alex.jpg</span>
+      </div>
       <h1>I grow<br>businesses</h1>
       <p class="sub">GTM<br>Sales<br>Marketing</p>
     </div>
@@ -400,11 +441,21 @@ footer{border-top:1px solid var(--line-soft);margin-top:64px;padding:20px 0 28px
 <!-- WORK -->
 <section id="work">
   <div class="wrap">
-    <p class="eyebrow rv">Case study</p>
+    <p class="eyebrow rv"><span class="idx">01</span>Case study</p>
     <div class="case rv">
       <h2 class="case-title">Nommar</h2>
       <p class="pull">I didn't just build the website. I helped build the system around the business.</p>
       <p class="desc">A working spa on Santorini, run by real owners, with real bookings on the line. I didn't just ship the booking software — I built the customer-facing loop around it: the site that sells the appointment, the systems that bring people to it, and now an AI agent that handles the reviews that bring the next customer.</p>
+      <div class="case-groups">
+        <div class="case-group">
+          <span class="k">Build</span>
+          <div class="tags"><span class="tag build">Website</span><span class="tag build">Booking system</span><span class="tag build">Automation</span><span class="tag build">AI review agent</span></div>
+        </div>
+        <div class="case-group">
+          <span class="k">Grow</span>
+          <div class="tags"><span class="tag grow">Google Business Profile</span><span class="tag grow">Instagram</span><span class="tag grow">QR funnel</span><span class="tag grow">Reviews</span><span class="tag grow">Acquisition</span></div>
+        </div>
+      </div>
       <p class="flow">Website → Bookings → QR funnel → Google → Instagram → Ads → Reviews → AI agent</p>
       <p class="res">In production · real bookings, real revenue</p>
     </div>
@@ -413,34 +464,38 @@ footer{border-top:1px solid var(--line-soft);margin-top:64px;padding:20px 0 28px
     <h2 class="rv">Also shipped</h2>
     <div class="work">
       <article class="item rv">
-        <div class="meta">Outbound Sequencer<br>Aug 2026<br><i>Build → Grow</i></div>
+        <div class="meta">Outbound Sequencer<br>Aug 2026</div>
         <div>
-          <h3>The sending engine I use on myself <span class="arw">→</span></h3>
+          <h3><span class="idx">02</span>The sending engine I use on myself <span class="arw">→</span></h3>
           <p>Rather than pay for a sequencer, I built one: Mailgun delivery, HubSpot sync, send jitter, automatic stop on reply, open and delivery tracking, pipeline kanban. Deployed on Vercel in a weekend, then debugged deliverability until it passed clean.</p>
+          <div class="tags"><span class="tag build">Build</span><span class="tag grow">Grow</span></div>
           <p class="res">10/10 on mail-tester after the rebuild</p>
         </div>
       </article>
       <article class="item rv">
-        <div class="meta">Discovery OS<br>In progress<br><i>Build for Grow</i></div>
+        <div class="meta">Discovery OS<br>In progress</div>
         <div>
-          <h3>Call prep in two minutes <span class="arw">→</span></h3>
+          <h3><span class="idx">03</span>Call prep in two minutes <span class="arw">→</span></h3>
           <p>Paste a domain, get a structured prep pack: pain points, discovery questions, objections with responses, demo strategy, follow-up email, CRM notes. Built because I needed it for my own calls.</p>
+          <div class="tags"><span class="tag build">Build</span><span class="tag grow">Grow</span></div>
           <p class="res">Target: 30 minutes of prep down to 2</p>
         </div>
       </article>
       <article class="item rv">
         <div class="meta">ThinkBiz Hackathon<br>2025<br><i>Team of five</i></div>
         <div>
-          <h3>1st place, National Bank of Greece Challenge <span class="arw">→</span></h3>
+          <h3><span class="idx">04</span>1st place, National Bank of Greece Challenge <span class="arw">→</span></h3>
           <p>A financial literacy app for parents and children: kids complete tasks, earn rewards, and spend them at real merchants through actual discounts. Third overall across the whole field.</p>
+          <div class="tags"><span class="tag build">Build</span></div>
           <p class="res">1st in challenge · 3rd overall</p>
         </div>
       </article>
       <article class="item rv">
         <div class="meta">Freelance<br>Santorini<br><i>Client work</i></div>
         <div>
-          <h3>Five sites for local businesses <span class="arw">→</span></h3>
+          <h3><span class="idx">05</span>Five sites for local businesses <span class="arw">→</span></h3>
           <p>Villas, transfers and island services — briefed, built and delivered directly with the owners. Where I learned that a website is a sales asset or it is nothing.</p>
+          <div class="tags"><span class="tag build">Build</span><span class="tag grow">Grow</span></div>
           <p class="res">5 delivered · direct client work</p>
         </div>
       </article>
@@ -498,11 +553,12 @@ footer{border-top:1px solid var(--line-soft);margin-top:64px;padding:20px 0 28px
 <section class="contact" id="contact">
   <div class="wrap">
     <p class="eyebrow rv">Contact</p>
-    <h2 class="rv">Let's build something.</h2>
+    <h2 class="rv">Have something worth building? Let's talk.</h2>
     <a class="mail rv" href="mailto:nomikosalex07@gmail.com">nomikosalex07@gmail.com</a>
     <p class="links rv">
       <a href="https://www.linkedin.com/in/alexandrosnomikosgtm/" target="_blank" rel="noopener">LinkedIn</a> ·
       <a href="https://github.com/nomikosalex" target="_blank" rel="noopener">GitHub</a> ·
+      <a href="https://x.com/pepeiiiiiiiiiii" target="_blank" rel="noopener">X</a> ·
       <a href="https://righteous-windscreen-7eb.notion.site/ALEXANDROS-NOMIKOS-3aba610f685b802089dfe73f8fbf3ef1?source=copy_link" target="_blank" rel="noopener">CV</a>
     </p>
     <footer>
@@ -524,12 +580,32 @@ footer{border-top:1px solid var(--line-soft);margin-top:64px;padding:20px 0 28px
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   document.getElementById('year').textContent = new Date().getFullYear();
 
+  /* Photo placeholder: if alex.jpg isn't there yet, show a labelled frame
+     instead of a broken image, on both sides of the split. */
+  document.querySelectorAll('[data-photo]').forEach(box=>{
+    const img = box.querySelector('img');
+    const fail = ()=> box.classList.add('empty');
+    img.addEventListener('error', fail);
+    if(img.complete && img.naturalWidth === 0) fail();
+  });
+
   /* ---- the split ---- */
   const hero = document.getElementById('top');
   const build = document.getElementById('layerBuild');
   const grow = document.getElementById('layerGrow');
   const divider = document.getElementById('divider');
   const fine = matchMedia('(pointer:fine)').matches;
+
+  /* ---- cursor glow (desktop only) ---- */
+  if(fine && !reduce){
+    const glow = document.createElement('div');
+    glow.className = 'cursor-glow';
+    document.body.appendChild(glow);
+    addEventListener('mousemove', e=>{
+      glow.style.transform = `translate3d(${e.clientX}px,${e.clientY}px,0)`;
+    }, {passive:true});
+  }
+
   // cur starts off-center so the divider eases into rest on load instead of
   // snapping straight to a static half-cut headline on first paint
   let target = .5, cur = .22;
