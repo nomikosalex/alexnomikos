@@ -3,16 +3,16 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Alexandros Nomikos — I bring the pipeline and build it</title>
-<meta name="description" content="GTM engineer: I build the systems that generate pipeline, and the products they sell.">
+<title>Alexandros Nomikos — Build. Grow.</title>
+<meta name="description" content="I build products and grow businesses — AI agents, software, and the go-to-market systems behind real revenue.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%23140E09'/%3E%3Ctext x='32' y='43' font-family='Georgia,serif' font-size='28' font-weight='700' fill='%23E8A33D' text-anchor='middle'%3EAN%3C/text%3E%3C/svg%3E">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Alexandros Nomikos — I bring the pipeline and build it">
-<meta property="og:description" content="GTM engineer: I build the systems that generate pipeline, and the products they sell.">
+<meta property="og:title" content="Alexandros Nomikos — Build. Grow.">
+<meta property="og:description" content="I build products and grow businesses — AI agents, software, and the go-to-market systems behind real revenue.">
 <meta property="og:url" content="https://alexnomikos.com/">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Alexandros Nomikos — I bring the pipeline and build it">
-<meta name="twitter:description" content="GTM engineer: I build the systems that generate pipeline, and the products they sell.">
+<meta name="twitter:title" content="Alexandros Nomikos — Build. Grow.">
+<meta name="twitter:description" content="I build products and grow businesses — AI agents, software, and the go-to-market systems behind real revenue.">
 <!-- Once a real photo/OG image exists: add og:image and switch twitter:card to summary_large_image -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -90,7 +90,8 @@ img{max-width:100%;display:block}
   position:relative;z-index:2;min-height:660px;height:calc(100svh - 42px);margin-top:42px;
   display:flex;flex-direction:column;cursor:ew-resize;user-select:none;
 }
-.hero-stage{position:relative;flex:1;min-height:0;overflow:hidden;container-type:size;container-name:stage}
+.hero-stage{position:relative;flex:1;min-height:0;overflow:hidden;container-type:size;container-name:stage;
+  border:1px solid var(--line)}
 .layer{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;will-change:clip-path}
 .layer.build{background:var(--ink);clip-path:inset(0 50% 0 0)}
 .layer.grow{background:var(--ink-2);clip-path:inset(0 0 0 50%)}
@@ -98,41 +99,23 @@ img{max-width:100%;display:block}
   background:radial-gradient(700px 500px at 70% 40%,rgba(232,163,61,.12),transparent 65%)}
 .inner{
   position:relative;width:100%;max-width:var(--maxw);padding:0 22px;
-  display:flex;flex-direction:column;align-items:center;text-align:center;gap:clamp(8px,3cqmin,20px)
+  display:flex;flex-direction:column;align-items:center;text-align:center;gap:clamp(12px,4cqmin,32px)
 }
 .side-tag{
-  font-family:"DM Mono",monospace;font-size:11px;letter-spacing:.34em;text-transform:uppercase;
+  font-family:"DM Mono",monospace;font-size:clamp(11px,2cqmin,14px);letter-spacing:.34em;text-transform:uppercase;
   display:flex;align-items:center;gap:10px
 }
 .build .side-tag{color:var(--muted)}
 .grow .side-tag{color:var(--amber)}
 
-/* photo — the split object */
-.photo{position:relative;width:clamp(90px,20cqmin,214px);aspect-ratio:4/5;overflow:hidden;
-  border:1px solid var(--line);border-radius:var(--radius);background:var(--surface)}
-.photo img{width:100%;height:100%;object-fit:cover}
-.build .photo img{filter:sepia(.3) saturate(.95) contrast(1.04) brightness(.94)}
-.grow .photo img{filter:grayscale(1) contrast(1.45) brightness(1.02)}
-.grow .photo::after{content:"";position:absolute;inset:0;background:var(--amber);
-  mix-blend-mode:color;opacity:.85}
-.grow .photo::before{content:"";position:absolute;inset:0;z-index:2;
-  background:repeating-linear-gradient(to bottom,rgba(20,14,9,.55) 0 1px,transparent 1px 3px)}
-.ph{display:none;position:absolute;inset:0;flex-direction:column;align-items:center;justify-content:center;gap:8px;
-  font-family:"DM Mono",monospace;font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);
-  background:linear-gradient(160deg,#2A1E14,#150E08)}
-.ph b{font-family:"Syne",sans-serif;font-size:46px;color:var(--line);letter-spacing:-.04em}
-.photo.empty img{display:none}
-.photo.empty .ph{display:flex}
-.grow .photo.empty::after{opacity:.35}
-
 .hero h1{
   font-family:"Syne",sans-serif;font-weight:800;text-transform:uppercase;
-  font-size:clamp(22px,9cqmin,72px);line-height:.98;letter-spacing:-.04em;
+  font-size:clamp(34px,15cqmin,120px);line-height:.98;letter-spacing:-.04em;
 }
 .build h1{color:var(--text);text-shadow:0 0 44px rgba(232,163,61,.14)}
 .grow h1{color:var(--amber);text-shadow:0 0 50px rgba(232,163,61,.3)}
-.hero .sub{font-family:"DM Mono",monospace;font-size:clamp(10px,1.4vw,12px);
-  letter-spacing:.2em;text-transform:uppercase;max-width:34ch;line-height:2}
+.hero .sub{font-family:"DM Mono",monospace;font-size:clamp(11px,2cqmin,15px);
+  letter-spacing:.28em;text-transform:uppercase;line-height:2.1}
 .build .sub{color:var(--muted)}
 .grow .sub{color:#D9AE76}
 
@@ -142,26 +125,14 @@ img{max-width:100%;display:block}
 .divider::after{content:"";position:absolute;top:50%;left:50%;width:9px;height:9px;margin:-4.5px;
   border-radius:50%;background:var(--amber);box-shadow:0 0 16px rgba(232,163,61,.8)}
 
-.hero-name{position:absolute;top:26px;left:0;right:0;z-index:6;text-align:center;
+.hero-name{padding:18px 22px 14px;text-align:center;
   font-family:"DM Mono",monospace;font-size:11px;letter-spacing:.4em;text-transform:uppercase;color:var(--muted)}
 .hero-foot{padding:18px 22px 22px;
-  border-top:1px solid var(--line-soft);background:rgba(20,14,9,.82);
-  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
-  display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center}
-.hero-foot p{font-size:clamp(15px,2vw,19px);max-width:52ch;color:#D9C7AF}
-.hero-foot p em{font-style:italic;color:var(--text)}
+  display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center}
+.hero-foot .tagline{font-family:"Syne",sans-serif;font-weight:600;
+  font-size:clamp(16px,2.4vw,22px);color:var(--text);letter-spacing:-.01em}
 .hint{font-family:"DM Mono",monospace;font-size:9.5px;letter-spacing:.24em;
   text-transform:uppercase;color:#7A6349}
-.cta-row{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
-.btn{
-  display:inline-flex;align-items:center;gap:9px;padding:12px 20px;text-decoration:none;
-  border:1px solid var(--line);border-radius:var(--radius);color:var(--text);
-  font-family:"DM Mono",monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;
-  transition:border-color .3s var(--ease),background .3s var(--ease),transform .3s var(--ease)
-}
-.btn:hover{border-color:var(--amber);background:rgba(232,163,61,.09);transform:translateY(-2px)}
-.btn.solid{background:var(--amber);border-color:var(--amber);color:#181008;font-weight:500}
-.btn.solid:hover{background:#F5B857;border-color:#F5B857}
 
 a:focus-visible,button:focus-visible{outline:2px solid var(--amber);outline-offset:3px;border-radius:var(--radius)}
 
@@ -222,7 +193,16 @@ h2{font-family:"Syne",sans-serif;font-weight:700;font-size:clamp(27px,4.2vw,44px
   transition:opacity .3s var(--ease),transform .3s var(--ease)}
 .item:hover h3 .arw{opacity:1;transform:translateX(0)}
 .item p{color:var(--muted);max-width:62ch}
-.item .res{font-family:"DM Mono",monospace;font-size:11.5px;color:var(--rust);margin-top:6px}
+.res{font-family:"DM Mono",monospace;font-size:11.5px;color:var(--rust);margin-top:6px}
+
+/* ---------- case study (featured work) ---------- */
+.case{margin-top:40px;padding-bottom:56px;border-bottom:1px solid var(--line-soft)}
+.case-title{font-family:"Syne",sans-serif;font-weight:800;text-transform:uppercase;
+  font-size:clamp(48px,10vw,140px);line-height:.92;letter-spacing:-.04em;color:var(--amber);
+  text-shadow:0 0 60px rgba(232,163,61,.3);margin-bottom:8px}
+.case .desc{color:var(--muted);max-width:62ch;font-size:clamp(16px,1.6vw,18px);margin-top:18px}
+.flow{font-family:"DM Mono",monospace;font-size:clamp(11px,1.3vw,13px);letter-spacing:.08em;
+  text-transform:uppercase;color:var(--muted);line-height:2;margin-top:22px;max-width:70ch}
 
 /* ---------- story ---------- */
 .story{max-width:60ch;margin-top:34px}
@@ -232,7 +212,7 @@ h2{font-family:"Syne",sans-serif;font-weight:700;font-size:clamp(27px,4.2vw,44px
   float:left;font-family:"Syne",sans-serif;font-weight:800;color:var(--amber);
   font-size:64px;line-height:.82;padding:4px 12px 0 0;text-shadow:0 0 30px rgba(232,163,61,.3)
 }
-.story .pull{
+.pull{
   border-left:1px solid var(--amber);padding:4px 0 4px 22px;margin:34px 0;
   font-family:"Syne",sans-serif;font-weight:600;font-size:clamp(19px,2.6vw,25px);
   line-height:1.28;letter-spacing:-.02em;color:var(--text)
@@ -242,6 +222,10 @@ h2{font-family:"Syne",sans-serif;font-weight:700;font-size:clamp(27px,4.2vw,44px
   font-family:"DM Mono",monospace;font-size:11px;letter-spacing:.16em;
   text-transform:uppercase;color:var(--muted)
 }
+.story-link{display:inline-block;margin-top:8px;font-family:"Syne",sans-serif;font-weight:700;
+  font-size:clamp(17px,2vw,20px);color:var(--amber);text-decoration:none;letter-spacing:-.01em;
+  transition:color .3s var(--ease)}
+.story-link:hover{color:#F5B857}
 
 /* ---------- NOW ---------- */
 .now{border:1px solid var(--line);border-radius:var(--radius);margin-top:36px;
@@ -274,9 +258,9 @@ h2{font-family:"Syne",sans-serif;font-weight:700;font-size:clamp(27px,4.2vw,44px
   background-repeat:no-repeat;background-position:0 100%;
   transition:background-size .5s var(--ease),color .3s var(--ease)}
 .mail:hover{background-size:100% 2px;color:var(--amber)}
-.links{display:flex;flex-wrap:wrap;gap:24px;margin-top:30px}
-.links a{color:var(--muted);text-decoration:none;font-family:"DM Mono",monospace;
-  font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;transition:color .3s var(--ease)}
+.links{margin-top:22px;font-family:"DM Mono",monospace;font-size:12px;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.links a{color:var(--muted);text-decoration:none;transition:color .3s var(--ease)}
 .links a:hover{color:var(--text)}
 footer{border-top:1px solid var(--line-soft);margin-top:64px;padding:20px 0 28px;
   display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
@@ -305,7 +289,6 @@ footer{border-top:1px solid var(--line-soft);margin-top:64px;padding:20px 0 28px
 @media(min-width:1080px){.wrap{padding:0 60px}}
 @media(max-width:679px){
   .hero{cursor:default}
-  .hero-foot p{font-size:15px}
 }
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
@@ -324,7 +307,7 @@ footer{border-top:1px solid var(--line-soft);margin-top:64px;padding:20px 0 28px
 <div class="rail">
   <div class="grp"><b>ALEXANDROS&nbsp;NOMIKOS</b></div>
   <nav>
-    <a href="#pipeline">Pipeline</a><a href="#work">Work</a><a href="#story">Story</a><a href="#now">Now</a><a href="#contact">Contact</a>
+    <a href="#pipeline">Pipeline</a><a href="#work">Work</a><a href="story.html">Story</a><a href="#now">Now</a><a href="#contact">Contact</a>
   </nav>
   <div class="grp"><span class="dot"></span> Open to work</div>
 </div>
@@ -337,24 +320,16 @@ footer{border-top:1px solid var(--line-soft);margin-top:64px;padding:20px 0 28px
   <div class="layer build" id="layerBuild">
     <div class="inner">
       <span class="side-tag">Build</span>
-      <div class="photo" data-photo>
-        <img src="alex.jpg" alt="Alexandros Nomikos">
-        <span class="ph"><b>A</b>add alex.jpg</span>
-      </div>
-      <h1>I build<br>the product</h1>
-      <p class="sub">Booking systems · admin panels · AI agents · internal tools</p>
+      <h1>I build<br>products</h1>
+      <p class="sub">AI<br>Software<br>Automation</p>
     </div>
   </div>
 
   <div class="layer grow" id="layerGrow">
     <div class="inner">
       <span class="side-tag">Grow</span>
-      <div class="photo" data-photo>
-        <img src="alex.jpg" alt="">
-        <span class="ph"><b>A</b>add alex.jpg</span>
-      </div>
-      <h1>I bring<br>the pipeline</h1>
-      <p class="sub">Target lists · enrichment · sequencing · deliverability · CRM</p>
+      <h1>I grow<br>businesses</h1>
+      <p class="sub">GTM<br>Sales<br>Marketing</p>
     </div>
   </div>
 
@@ -362,12 +337,8 @@ footer{border-top:1px solid var(--line-soft);margin-top:64px;padding:20px 0 28px
   </div>
 
   <div class="hero-foot">
-    <p class="hint">← move across ·  most people only do one side  · →</p>
-    <p>Most teams hire someone to fill the pipeline, then someone else to build what it sells. <em>I do both, and I ship them together.</em></p>
-    <div class="cta-row">
-      <a class="btn solid" href="#work">See the work</a>
-      <a class="btn" href="mailto:nomikosalex07@gmail.com">nomikosalex07@gmail.com</a>
-    </div>
+    <p class="hint">← move across →</p>
+    <p class="tagline">One person. No handoff.</p>
   </div>
 </header>
 
@@ -429,17 +400,18 @@ footer{border-top:1px solid var(--line-soft);margin-top:64px;padding:20px 0 28px
 <!-- WORK -->
 <section id="work">
   <div class="wrap">
-    <p class="eyebrow rv">Selected work</p>
-    <h2 class="rv">Shipped, live, in use</h2>
+    <p class="eyebrow rv">Case study</p>
+    <div class="case rv">
+      <h2 class="case-title">Nommar</h2>
+      <p class="pull">I didn't just build the website. I helped build the system around the business.</p>
+      <p class="desc">A working spa on Santorini, run by real owners, with real bookings on the line. I didn't just ship the booking software — I built the customer-facing loop around it: the site that sells the appointment, the systems that bring people to it, and now an AI agent that handles the reviews that bring the next customer.</p>
+      <p class="flow">Website → Bookings → QR funnel → Google → Instagram → Ads → Reviews → AI agent</p>
+      <p class="res">In production · real bookings, real revenue</p>
+    </div>
+
+    <p class="eyebrow rv">More work</p>
+    <h2 class="rv">Also shipped</h2>
     <div class="work">
-      <article class="item rv">
-        <div class="meta">Nommar · Santorini<br>2025 — now<br><i>Build + Grow</i></div>
-        <div>
-          <h3>Spa operations software <span class="arw">→</span></h3>
-          <p>Booking, scheduling and customer records for a working spa. I write the software and I also handle how it gets customers. Currently adding an AI review agent: Claude drafts the reply to each Google review, the owner approves it in an admin panel before anything goes public.</p>
-          <p class="res">In production · real bookings, real revenue</p>
-        </div>
-      </article>
       <article class="item rv">
         <div class="meta">Outbound Sequencer<br>Aug 2026<br><i>Build → Grow</i></div>
         <div>
@@ -482,14 +454,8 @@ footer{border-top:1px solid var(--line-soft);margin-top:64px;padding:20px 0 28px
     <p class="eyebrow rv">My story</p>
     <h2 class="rv">Where this comes from</h2>
     <div class="story">
-      <p class="first rv">I grew up on Santorini, which is an unusual place to learn about business and a very effective one. The island runs on a season. Everything gets built, sold and shut down inside a few months, and almost everyone you know is either running something or working for someone who is. You learn early that revenue has a clock on it.</p>
-      <p class="rv">My father was the first model I had. He started with very little and built a life that gave me the thing he never had: options. I watched what that took — the hours, the patience, the years without a shortcut — for long enough to want the same result, and to want to reach it a different way.</p>
-      <p class="rv">Traditional businesses never pulled me. What interested me was the layer above them. A hotel gets booked because somebody answered the phone; software gets bought while you sleep. Systems keep working after you stop pushing them, and that difference has been the whole point for me since I was a teenager.</p>
-      <p class="pull rv">So I sat the Panhellenic exams with one target: Athens.</p>
-      <p class="rv">Not because Economics at AUEB was a dream, but because Athens is where the people and the ideas are, and I wanted to be in the same rooms as as many of them as possible. Then I found out how fast a degree stops being enough. Lectures teach you the theory of a market. Nobody in the room had sent a cold email that week, or shipped anything anyone used.</p>
-      <p class="rv">So I started teaching myself. Websites for island businesses first, because they paid and because real clients tell you the truth. Then software that runs a real company. Then the go-to-market systems around it — certifications on my own time, a hackathon we won, tools built because I needed them rather than because someone assigned them.</p>
-      <p class="rv">I'm 19. Everything on this page was built in the gap between what university handed me and what I actually wanted to know.</p>
-      <p class="sign rv">Alexandros Nomikos · Santorini → Athens</p>
+      <p class="first rv">I grew up on Santorini, where every business has a season. That taught me early that businesses don't have time for software that doesn't work.</p>
+      <a class="story-link rv" href="story.html">Read my story →</a>
     </div>
   </div>
 </section>
@@ -532,13 +498,13 @@ footer{border-top:1px solid var(--line-soft);margin-top:64px;padding:20px 0 28px
 <section class="contact" id="contact">
   <div class="wrap">
     <p class="eyebrow rv">Contact</p>
-    <h2 class="rv">Hiring someone to build the pipeline, not just work it?</h2>
+    <h2 class="rv">Let's build something.</h2>
     <a class="mail rv" href="mailto:nomikosalex07@gmail.com">nomikosalex07@gmail.com</a>
-    <div class="links rv">
-      <a href="https://www.linkedin.com/in/alexandrosnomikosgtm/" target="_blank" rel="noopener">LinkedIn ↗</a>
-      <a href="https://github.com/nomikosalex" target="_blank" rel="noopener">GitHub ↗</a>
-      <a href="https://righteous-windscreen-7eb.notion.site/ALEXANDROS-NOMIKOS-3aba610f685b802089dfe73f8fbf3ef1?source=copy_link" target="_blank" rel="noopener">CV ↗</a>
-    </div>
+    <p class="links rv">
+      <a href="https://www.linkedin.com/in/alexandrosnomikosgtm/" target="_blank" rel="noopener">LinkedIn</a> ·
+      <a href="https://github.com/nomikosalex" target="_blank" rel="noopener">GitHub</a> ·
+      <a href="https://righteous-windscreen-7eb.notion.site/ALEXANDROS-NOMIKOS-3aba610f685b802089dfe73f8fbf3ef1?source=copy_link" target="_blank" rel="noopener">CV</a>
+    </p>
     <footer>
       <span>Alexandros Nomikos · Athens &amp; Santorini, GR</span>
       <span>Built by hand · <span id="year">2026</span></span>
@@ -550,17 +516,13 @@ footer{border-top:1px solid var(--line-soft);margin-top:64px;padding:20px 0 28px
 
 <script>
 (function(){
+  console.log('%cALEXANDROS NOMIKOS', 'font-family:monospace;font-size:20px;font-weight:700;color:#E8A33D;');
+  console.log('%cBuild. Grow. No handoff.', 'font-family:monospace;font-size:12px;letter-spacing:2px;color:#AD9478;');
+  console.log('%cLooking under the hood — I like that. nomikosalex07@gmail.com', 'font-family:monospace;font-size:12px;color:#F3E6D4;');
+  console.log('%c🐦 Pipi approves.', 'font-family:monospace;font-size:11px;color:#7A6349;');
+
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   document.getElementById('year').textContent = new Date().getFullYear();
-
-  /* Photo placeholder: if alex.jpg isn't there yet, show a labelled frame
-     instead of a broken image, on both sides of the split. */
-  document.querySelectorAll('[data-photo]').forEach(box=>{
-    const img = box.querySelector('img');
-    const fail = ()=> box.classList.add('empty');
-    img.addEventListener('error', fail);
-    if(img.complete && img.naturalWidth === 0) fail();
-  });
 
   /* ---- the split ---- */
   const hero = document.getElementById('top');
@@ -585,6 +547,11 @@ footer{border-top:1px solid var(--line-soft);margin-top:64px;padding:20px 0 28px
       target = Math.min(.86, Math.max(.14, (e.clientX - r.left)/r.width));
     });
     hero.addEventListener('mouseleave', ()=> target = .5);
+    document.addEventListener('keydown', e=>{
+      // Arrow keys nudge the split too — the divider is the site's signature move, not just a mouse trick
+      if(e.key === 'ArrowLeft') target = Math.max(.14, target - .06);
+      else if(e.key === 'ArrowRight') target = Math.min(.86, target + .06);
+    });
     (function loop(){
       cur += (target-cur)*.09;   // lerp: the divider trails the cursor, it doesn't snap to it
       setSplit(cur);
@@ -592,31 +559,28 @@ footer{border-top:1px solid var(--line-soft);margin-top:64px;padding:20px 0 28px
     })();
   } else {
     // Touch: tapping a side leans the split that way. No drag, so scrolling stays intact.
+    const tweenTo = (p, dur=500)=>{
+      target = p;
+      if(reduce){ cur = p; setSplit(p); return; }
+      const from = cur, t0 = performance.now();
+      (function run(now){
+        const k = Math.min((now-t0)/dur, 1);
+        cur = from + (p-from)*(1-Math.pow(1-k,3));
+        setSplit(cur);
+        if(k<1) requestAnimationFrame(run);
+      })(t0);
+    };
     hero.addEventListener('click', e=>{
       const r = hero.getBoundingClientRect();
       const p = (e.clientX - r.left)/r.width;
-      target = p < .5 ? .78 : .22;
-      const from = cur, t0 = performance.now();
-      (function run(now){
-        const k = Math.min((now-t0)/500, 1);
-        cur = from + (target-from)*(1-Math.pow(1-k,3));
-        setSplit(cur);
-        if(k<1) requestAnimationFrame(run);
-      })(t0);
+      tweenTo(p < .5 ? .78 : .22);
     });
-    if(reduce){
-      cur = .5;
-      setSplit(.5);
-    } else {
-      // Entrance: ease from off-center into rest so each headline is glimpsed whole once
-      const from = cur, to = .5, t0 = performance.now();
-      (function run(now){
-        const k = Math.min((now-t0)/900, 1);
-        cur = from + (to-from)*(1-Math.pow(1-k,3));
-        setSplit(cur);
-        if(k<1) requestAnimationFrame(run);
-      })(t0);
-    }
+    document.addEventListener('keydown', e=>{
+      if(e.key === 'ArrowLeft') tweenTo(Math.max(.14, cur - .12));
+      else if(e.key === 'ArrowRight') tweenTo(Math.min(.86, cur + .12));
+    });
+    // Entrance: ease from off-center into rest so each headline is glimpsed whole once
+    tweenTo(.5, 900);
   }
 
   /* ---- reveals ---- */
