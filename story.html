@@ -70,9 +70,25 @@ img{max-width:100%;display:block}
   font-family:"DM Mono",monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
 }
 .rail a.brand{color:var(--text);font-weight:500;text-decoration:none}
-.rail nav{display:flex;gap:20px}
+.rail nav{display:none;gap:20px}
 .rail nav a{color:var(--muted);text-decoration:none;transition:color .3s var(--ease)}
 .rail nav a:hover{color:var(--amber)}
+.menu-toggle{display:inline-flex;background:none;border:1px solid var(--line);color:var(--text);
+  font-family:"DM Mono",monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;
+  padding:6px 12px;border-radius:var(--radius);cursor:pointer;transition:border-color .3s var(--ease),color .3s var(--ease)}
+.menu-toggle:hover{border-color:var(--amber);color:var(--amber)}
+.mobile-nav{position:fixed;top:42px;left:0;right:0;z-index:39;
+  background:rgba(20,14,9,.96);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line-soft);
+  display:flex;flex-direction:column;padding:0 20px;
+  max-height:0;overflow:hidden;transition:max-height .3s var(--ease)}
+.mobile-nav.open{max-height:300px;padding:8px 20px 16px}
+.mobile-nav a{padding:12px 0;border-bottom:1px solid var(--line-soft);
+  font-family:"DM Mono",monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--muted);text-decoration:none}
+.mobile-nav a:last-child{border-bottom:0}
+.mobile-nav a:hover{color:var(--amber)}
+@media(min-width:680px){.rail nav{display:flex}.menu-toggle,.mobile-nav{display:none}}
 
 main{position:relative;z-index:2}
 .wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px}
@@ -136,8 +152,12 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--amber);outline-offs
 <div class="rail">
   <a class="brand" href="index.html">ALEXANDROS&nbsp;NOMIKOS</a>
   <nav>
-    <a href="index.html#pipeline">Pipeline</a><a href="index.html#work">Work</a><a href="index.html#now">Now</a><a href="index.html#contact">Contact</a>
+    <a href="index.html#work">Work</a><a href="index.html#now">Now</a><a href="index.html#contact">Contact</a>
   </nav>
+  <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="mobileNav">Menu</button>
+</div>
+<div class="mobile-nav" id="mobileNav">
+  <a href="index.html#work">Work</a><a href="index.html#now">Now</a><a href="index.html#contact">Contact</a>
 </div>
 
 <main>
@@ -168,6 +188,20 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--amber);outline-offs
 <script>
 (function(){
   document.getElementById('year').textContent = new Date().getFullYear();
+
+  const menuToggle = document.getElementById('menuToggle');
+  const mobileNav = document.getElementById('mobileNav');
+  menuToggle.addEventListener('click', ()=>{
+    const open = mobileNav.classList.toggle('open');
+    menuToggle.setAttribute('aria-expanded', String(open));
+    menuToggle.textContent = open ? 'Close' : 'Menu';
+  });
+  mobileNav.querySelectorAll('a').forEach(a=> a.addEventListener('click', ()=>{
+    mobileNav.classList.remove('open');
+    menuToggle.setAttribute('aria-expanded','false');
+    menuToggle.textContent = 'Menu';
+  }));
+
   const io = new IntersectionObserver(es=>{
     es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
   },{threshold:.15, rootMargin:'0px 0px -8% 0px'});

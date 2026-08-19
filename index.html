@@ -82,6 +82,22 @@ img{max-width:100%;display:block}
 .rail nav a{color:var(--muted);text-decoration:none;transition:color .3s var(--ease)}
 .rail nav a:hover{color:var(--amber)}
 .rail .grp{display:flex;gap:18px;align-items:center}
+.menu-toggle{display:inline-flex;background:none;border:1px solid var(--line);color:var(--text);
+  font-family:"DM Mono",monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;
+  padding:6px 12px;border-radius:var(--radius);cursor:pointer;transition:border-color .3s var(--ease),color .3s var(--ease)}
+.menu-toggle:hover{border-color:var(--amber);color:var(--amber)}
+.mobile-nav{position:fixed;top:42px;left:0;right:0;z-index:39;
+  background:rgba(20,14,9,.96);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line-soft);
+  display:flex;flex-direction:column;padding:0 20px;
+  max-height:0;overflow:hidden;transition:max-height .3s var(--ease)}
+.mobile-nav.open{max-height:300px;padding:8px 20px 16px}
+.mobile-nav a{padding:12px 0;border-bottom:1px solid var(--line-soft);
+  font-family:"DM Mono",monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--muted);text-decoration:none}
+.mobile-nav a:last-child{border-bottom:0}
+.mobile-nav a:hover{color:var(--amber)}
+@media(min-width:680px){.menu-toggle,.mobile-nav{display:none}}
 .dot{width:6px;height:6px;border-radius:50%;background:var(--amber);display:inline-block;
   box-shadow:0 0 0 0 rgba(232,163,61,.6);animation:pulse 2.4s infinite}
 @keyframes pulse{
@@ -265,7 +281,7 @@ h2{font-family:"Syne",sans-serif;font-weight:700;font-size:clamp(27px,4.2vw,44px
   border-bottom:1px solid var(--line-soft);font-family:"DM Mono",monospace;font-size:10.5px;
   letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
 .now-head b{color:var(--amber);font-weight:500}
-.now-row{display:grid;grid-template-columns:118px 1fr;gap:16px;padding:15px 24px;
+.now-row{display:grid;grid-template-columns:minmax(84px,118px) 1fr;gap:16px;padding:15px 24px;
   border-bottom:1px solid var(--line-soft);align-items:baseline}
 .now-row:last-child{border-bottom:0}
 .now-row .k{font-family:"DM Mono",monospace;font-size:10px;letter-spacing:.18em;
@@ -291,7 +307,7 @@ h2{font-family:"Syne",sans-serif;font-weight:700;font-size:clamp(27px,4.2vw,44px
 .mail:hover{background-size:100% 2px;color:var(--amber)}
 .links{margin-top:22px;font-family:"DM Mono",monospace;font-size:12px;
   letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
-.links a{color:var(--muted);text-decoration:none;transition:color .3s var(--ease)}
+.links a{color:var(--muted);text-decoration:none;padding:4px 2px;transition:color .3s var(--ease)}
 .links a:hover{color:var(--text)}
 footer{border-top:1px solid var(--line-soft);margin-top:64px;padding:20px 0 28px;
   display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
@@ -340,7 +356,13 @@ footer{border-top:1px solid var(--line-soft);margin-top:64px;padding:20px 0 28px
   <nav>
     <a href="#work">Work</a><a href="story.html">Story</a><a href="#now">Now</a><a href="#contact">Contact</a>
   </nav>
-  <div class="grp"><span class="dot"></span> Open to work</div>
+  <div class="grp">
+    <span class="dot"></span> Open to work
+    <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="mobileNav">Menu</button>
+  </div>
+</div>
+<div class="mobile-nav" id="mobileNav">
+  <a href="#work">Work</a><a href="story.html">Story</a><a href="#now">Now</a><a href="#contact">Contact</a>
 </div>
 
 <!-- ================= SPLIT HERO ================= -->
@@ -577,6 +599,21 @@ footer{border-top:1px solid var(--line-soft);margin-top:64px;padding:20px 0 28px
 
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   document.getElementById('year').textContent = new Date().getFullYear();
+
+  /* ---- mobile nav toggle ---- */
+  const menuToggle = document.getElementById('menuToggle');
+  const mobileNav = document.getElementById('mobileNav');
+  const closeMenu = ()=>{
+    mobileNav.classList.remove('open');
+    menuToggle.setAttribute('aria-expanded','false');
+    menuToggle.textContent = 'Menu';
+  };
+  menuToggle.addEventListener('click', ()=>{
+    const open = mobileNav.classList.toggle('open');
+    menuToggle.setAttribute('aria-expanded', String(open));
+    menuToggle.textContent = open ? 'Close' : 'Menu';
+  });
+  mobileNav.querySelectorAll('a').forEach(a=> a.addEventListener('click', closeMenu));
 
   /* Photo placeholder: if alex.jpg isn't there yet, show a labelled frame
      instead of a broken image, on both sides of the split. */
